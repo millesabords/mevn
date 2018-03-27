@@ -1,0 +1,4 @@
+- cours de routing avec node basique classique up to date mais efficace.
+- deal with this routing pb (does not enter in myroutes module although it knows it)
+- take care 'myroutes' private module may enter in conflict with other project epou's myroutes
+
