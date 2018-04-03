@@ -50,3 +50,7 @@ use mven; //will create empty database 'mevn'
 db.createUser({user: "mynewuser", pwd: "myuser123", roles: [ "readWrite", "dbAdmin" ] });
 db.movie.insert({"name":"whatever"})
 
+setups:
+$ ctags -R static/ src/ myroutes/ mymodels/ *.js --tag-relative=yes
+gvim javascript live debugging: ":Codi"
+

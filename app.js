@@ -17,8 +17,9 @@ var BookSchema = require('mymodels');
 app.use(function(req, res, next) {
 //  res.send('Wiki home page');
   console.log("entering test route....");
-var test1 = new BookSchema({title:'nonameahaha'});
-  test1.save(function (err,test1) {
+var test1 = new BookSchema({title:'anamewasgiven'});
+var test2 = new BookSchema({ "isbn":"211333122, 98872233321123","title":"How to Build MEVN Stack","author": "Didin J.","description":"The comprehensive step by step tutorial on how to build MEVN (MongoDB, Express.js, Vue.js and Node.js) stack web application from scratch","published_year":"2017","publisher":"Djamware.com" });
+  test2.save(function (err,test1) {
     if (err) return console.error(err);
     console.log("saving book with name: " + test1.title);
   });
@@ -72,7 +73,7 @@ app.set('view engine', 'html');
 
 //import mongoose from 'mongoose';
 var mongoose = require('mongoose');
-mongoose.Promise = require('bluebird');
+//mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://localhost/mevn', { promiseLibrary: require('bluebird') })
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));

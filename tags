@@ -1,0 +1,19 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Book	myroutes/books.js	/^var Book = require('mymodels');$/;"	v
+BookSchema	app.js	/^var BookSchema = require('mymodels');$/;"	v
+app	app.js	/^var app = express();$/;"	v
+bodyParser	app.js	/^var bodyParser = require('body-parser');$/;"	v
+express	app.js	/^var express = require('express');$/;"	v
+express	myroutes/books.js	/^var express = require('express');$/;"	v
+favicon	app.js	/^var favicon = require('serve-favicon');$/;"	v
+logger	app.js	/^var logger = require('morgan');$/;"	v
+mongoose	app.js	/^var mongoose = require('mongoose');$/;"	v
+mongoose	mymodels/Books.js	/^var mongoose = require('mongoose');$/;"	v
+mongoose	myroutes/books.js	/^var mongoose = require('mongoose');$/;"	v
+path	app.js	/^var path = require('path');$/;"	v
+router	myroutes/books.js	/^var router = express.Router();$/;"	v

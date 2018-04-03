@@ -14,16 +14,17 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "async": "^2.6.0",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "mongoose": "^5.0.11",
     "morgan": "^1.9.0",
+    "mymodels": "*",
+    "myroutes": "*",
     "serve-favicon": "^2.4.5",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1",
-    "myroutes": "*",
-    "mymodels": "*"
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
