@@ -1,0 +1,27 @@
+router                                                                                                         
+ ├── query                                         *                                                           
+ ├── expressInit                                   *                                                           
+ ├── jsonParser                                    *                                                           
+ ├── urlencodedParser                              *                                                           
+ ├── serveStatic                                   *                                                           
+ ├── router                                        /^\/book\/?(?=\/|$)/                                        
+ │   router                                                                                                    
+ │    ├── bound dispatch                           /                                                           GET
+ │    │    └── getAllBooks                         /                                                           GET
+ │    │   
+ │    ├── bound dispatch                           /:id                                                        GET
+ │    │    └── getSingleBookById                   /                                                           GET
+ │    │   
+ │    ├── bound dispatch                           /                                                           POST
+ │    │    └── saveBook                            /                                                           POST
+ │    │   
+ │    ├── bound dispatch                           /:id                                                        PUT
+ │    │    └── updateBook                          /                                                           PUT
+ │    │   
+ │    └── bound dispatch                           /:id                                                        DELETE
+ │         └── deleteBook                          /                                                           DELETE
+ │        
+ │   
+ ├── _fourhundredfour                              *                                                           
+ ├── routeErrorHandler                             *                                                           
+ └── logger                                        *                                                           

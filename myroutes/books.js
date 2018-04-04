@@ -16,8 +16,9 @@ Book.find(function (err, products) {
 /* GET SINGLE BOOK BY ID */
 router.get('/:id', function getSingleBookById(req, res, next) {
 	console.log("route GETSINGLEBOOKBYID");
-	Book.find({'title': id}, (err, bks) =>{
-	    if (err) return res.status(500).json(err)//send
+//	Book.find({_id: id}, (err, bks) =>{
+	Book.findById(req.params.id, function (err, bks) {
+	    if(err) return res.status(500).json(err)//send
     	return res.status(200).json(bks);//send
 	});
 /*  Book.findById(req.params.id, function (err, post) {

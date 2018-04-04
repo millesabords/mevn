@@ -28,11 +28,11 @@ test1.find(function (err,test1) {
 });
 */
 
-var book = require('myroutes');
-/*
+
 app.use(express.static(path.join(__dirname, 'dist')));
-app.use('/books', express.static(path.join(__dirname, 'dist')));
-*/
+//app.use('/books', express.static(path.join(__dirname, 'dist')));
+
+var book = require('myroutes');
 app.use('/book', book);
 
 // catch 404 and forward to error handler
@@ -42,7 +42,6 @@ app.use(function _fourhundredfour(req, res, next) {
   next(err);
 });
 
-
 // error handler
 app.use(function routeErrorHandler(err, req, res, next) {
   // set locals, only providing error in development
@@ -51,8 +50,8 @@ app.use(function routeErrorHandler(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  //res.send('error' + err.message);
-  res.render('error');//todo la vue erreur n'existe pas
+  res.send('error' + err.message);
+  //res.render('error');
 });
 
 
@@ -66,12 +65,12 @@ app.set('view engine', 'html');
 
 if (process.env.NODE_ENV === 'development') { // Only in dev environment 
 	console.log('development environment') 
-/*
+
 	app.use(logger('dev'));
     var path = require('path');
     var filepath = path.join(__dirname, './docs/routes.generated.txt');
     require('express-print-routes')(app, filepath);
-*/
+
 }
 
 //import mongoose from 'mongoose';
