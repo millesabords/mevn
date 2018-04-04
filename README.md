@@ -54,3 +54,4 @@ setups:
 $ ctags -R static/ src/ myroutes/ mymodels/ *.js --tag-relative=yes
 gvim javascript live debugging: ":Codi"
 
+route debugging: $ DEBUG=express:* node truc.js (or put it in package.json scripts directives)
