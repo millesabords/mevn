@@ -30,6 +30,7 @@
 <script>
 
 import axios from 'axios'
+import App from '../App'
 
 export default {
   name: 'ShowBook',
@@ -39,7 +40,7 @@ export default {
     }
   },
   created () {
-    axios.get(`http://localhost:3000/book/` + this.$route.params.id)
+    axios.get(Process.env.API_URL + 'book' + this.$route.params.id)
     .then(response => {
       this.book = response.data
     })
@@ -55,7 +56,7 @@ export default {
       })
     },
     deletebook (bookid) {
-      axios.delete('http://localhost:3000/book/' + bookid)
+      axios.delete(App.API_URL + 'book/' + bookid)
       .then((result) => {
         this.$router.push({
           name: 'BookList'

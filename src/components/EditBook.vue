@@ -61,6 +61,7 @@
 <script>
 
 import axios from 'axios'
+import App from '../App'
 
 export default {
   name: 'EditBook',
@@ -70,7 +71,7 @@ export default {
     }
   },
   created () {
-    axios.get(`http://localhost:3000/book/` + this.$route.params.id)
+    axios.get(App.API_URL + 'book/' + this.$route.params.id)
     .then(response => {
       this.book = response.data
     })
@@ -81,7 +82,7 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      axios.put(`http://localhost:3000/book/` + this.$route.params.id, this.book)
+      axios.put(App.API_URL + 'book/' + this.$route.params.id, this.book)
       .then(response => {
         this.$router.push({
           name: 'ShowBook',

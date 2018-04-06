@@ -1,14 +1,15 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-	<h3>trucaaaaaaaaaaaaaaaaa</h3>
+	<h3>trucs</h3>
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  API_URL: 'http://localhost:3000/'
 }
 </script>
 

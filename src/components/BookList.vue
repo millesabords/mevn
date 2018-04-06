@@ -22,6 +22,7 @@
 <script>
 
 import axios from 'axios'
+import App from '../App'
 
 export default {
   name: 'BookList',
@@ -37,7 +38,7 @@ export default {
     }
   },
   created () {
-    axios.get(`http://localhost:3000/book`)
+    axios.get(App.API_URL + 'book')
     .then(response => {
       this.books = response.data
     })
