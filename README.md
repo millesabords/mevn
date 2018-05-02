@@ -1,3 +1,7 @@
+- docker build --tag truc1 .
+- docker container run -d -p 3001:3000 truc1
+- netstat -plnt #to see the mess with open tcp ports
+
 # mevn-stack
 
 > A Vue.js project
