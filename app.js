@@ -64,10 +64,10 @@ app.set('view engine', 'html');
 
 
 if (process.env.NODE_ENV === 'development') { // Only in dev environment 
-	console.log('globals = ' + JSON.stringify(app.settings))
+//	console.log('globals = ' + JSON.stringify(app.settings))
 	
-	console.log('env vars = ' + JSON.stringify(process.env) )
-	console.log('development environment. Adress is: ' + process.env.appUrl) 
+//	console.log('env vars = ' + JSON.stringify(process.env) )
+	console.log('development environment. Adress is: ' + process.env.MY_API_URL) 
 
 	app.use(logger('dev'));
     var path = require('path');

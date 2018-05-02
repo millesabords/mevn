@@ -1,5 +1,5 @@
 'use strict'
 module.exports = {
-  NODE_ENV: '"production"'
-//todo		,  appUrl: 'http://qqpart..../'
+  NODE_ENV: '"production"',
+  MY_API_URL: '"http://somewhereOverTheRainbowwww/"'
 }

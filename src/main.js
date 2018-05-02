@@ -12,6 +12,8 @@ Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 
 console.log("hello worldddddddddddddd: " + App.API_URL)
+console.log("hello worldddddddddddddd2: " + process.env.MY_API_URL)
+console.log("hello worldddddddddddddd3: " + process.env.MY_API_URL)
 
 /* eslint-disable no-new */
 new Vue({
