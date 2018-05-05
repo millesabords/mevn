@@ -1,6 +1,7 @@
 - docker build --tag truc1 .
 - docker container run -d -p 3001:3000 truc1
 - netstat -plnt #to see the mess with open tcp ports
+- docker-compose up
 
 # mevn-stack
 
@@ -53,6 +54,17 @@ $ mongo
 use mven; //will create empty database 'mevn'
 db.createUser({user: "mynewuser", pwd: "myuser123", roles: [ "readWrite", "dbAdmin" ] });
 db.movie.insert({"name":"whatever"})
+
+dockerization:
+docker-compose up -d
+curl -i localhost:3001
+docker exec -it mongo bash
+check in mongo if paths lead to existing host db "mven" with existing collections (use meven; show collections in mongo)
+docker-compose rm -fv mongodb -> delete volume with db created (careful) or use docker system prune
+issues maybe with paths, ports, auths...
+db appears to be persistent (adter down and re up, users still there...)
+build 2 images separately and create a new docker-compose.yml for production that doesn't build but uses created images
+when everything rocks, test with json more correctly formatted data than: curl -X POST -H "Content-type: application/json" http://localhost:3000/data/into/db -d '[ { "a": 1 }, { "b": 2 }, { "c": 3 } ]'
 
 setups:
 $ ctags -R static/ src/ myroutes/ mymodels/ *.js --tag-relative=yes

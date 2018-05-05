@@ -79,10 +79,12 @@ if (process.env.NODE_ENV === 'development') { // Only in dev environment
 //import mongoose from 'mongoose';
 var mongoose = require('mongoose');
 //mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/mevn', { promiseLibrary: require('bluebird') })
+mongoose.connect('mongodb://localhost:27017/mevn', { promiseLibrary: require('bluebird') })
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
 // mongoose.on('error', console.error.bind(console, 'connection error:'));
+
+//console.log("WAX mongoose connected on: " + mongoose.Connection.prototype.host + " " + mongoose.connections.user);//27017
 
 module.exports = app;
 

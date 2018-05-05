@@ -1,3 +1,4 @@
+- dockerization: still can't connect to mongodb
 - config file in common for node code and vue code? (extra config file in config dirs not to be used by webpack but just imported by...)
 - take care 'myroutes' private module may enter in conflict with other project epou's myroutes
 - use this as a platform to make a life blog or xwiki?
