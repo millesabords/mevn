@@ -49,11 +49,18 @@ $ sudo usermod -a -G mongodb ouam ...// add mongodb group to me
 $ sudo chmod g+w /var/log/mongodb/mongodb.log
 $ sudo chmod g+w /var/log/mongodb
 check that dbpath points to '/var/lib/mongodb' in /etc/mongodb.conf file and then:
-$ sudo service mongodb restart
+$ sudo service mongod restart
+
+Start first mongo sesion without --auth to create admin:
 $ mongo
+$ use admin
+$ db.createUser({user: "mememe",pwd: "...",roles: [ { role: "root", db: "admin" }]})
+//	 	roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+Then restart mongod with --auth option, and then in mongo cli (mongod --auth --port 27017 --dbpath /data/db1 mongo --port 27017 -u "mememe" -p "..." --authenticationDatabase "admin"):
 use mven; //will create empty database 'mevn'
 db.createUser({user: "mynewuser", pwd: "myuser123", roles: [ "readWrite", "dbAdmin" ] });
 db.movie.insert({"name":"whatever"})
+...Or check that in /etc/mongodb.conf, auth is first false and then true, and also port and host and restart service
 
 dockerization:
 docker-compose up -d
@@ -65,6 +72,17 @@ issues maybe with paths, ports, auths...
 db appears to be persistent (adter down and re up, users still there...)
 build 2 images separately and create a new docker-compose.yml for production that doesn't build but uses created images
 when everything rocks, test with json more correctly formatted data than: curl -X POST -H "Content-type: application/json" http://localhost:3000/data/into/db -d '[ { "a": 1 }, { "b": 2 }, { "c": 3 } ]'
+docker inspect <containerid> | grep "IPadress"
+(mongo has to be connected to via container's ip adress as host. example: mongo mynewuser -p myuser123 --host 172.17.0.2 --port 27017)
+
+ce qui marche:
+$ docker volume ls; docker volume prune; docker volume ls;
+$ docker run --name some-mongo -d mongo
+$ docker inspect some-mongo  -> myip
+$ docker run -it some-mongo bash
+ $ mongo admin --host myip +-1
+ $ create db user...
+
 
 setups:
 $ ctags -R static/ src/ myroutes/ mymodels/ *.js --tag-relative=yes

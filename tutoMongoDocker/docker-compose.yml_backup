@@ -1,0 +1,21 @@
+version: '2'
+services:
+  mongo:
+   image: mongo:latest
+   container_name: mongo
+   ports:
+    - "27017:27017"
+   environment:
+    - AUTH=yes
+   volumes:
+    - /app/hdp/mongo/data:/data/db
+
+  mongoClientTemp:
+   image: mongo:latest
+   container_name: mongoClientTemp
+   links:
+    - mongo:mongo
+   command: mongo --host localhost --eval  "db.getSiblingDB('dashboard').createUser({user:'testuser', pwd:'testpass', roles:[{role:'readWrite',db:'dashboard'}]});"
+   depends_on:
+    - mongo
+

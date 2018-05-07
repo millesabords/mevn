@@ -7,18 +7,29 @@ web:
     env_file: .env
     environment:
       - NODE_ENV=development
-      - MONGODB_USER=${MONGODB_USER}
-      - MONGODB_HOST=${MONGODB_HOST}
-      - MONGODB_DATABASE=${MONGODB_HOST}
-      - MONGODB_PASS=${MONGODB_PASS}
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
-      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
 
 mongo:
     image: mongo
-    container_name: mongo
+#    container_name: mongo2
+    env_file: .env
+    environment:
+      - AUTH=yes
+      - MONGODB_USER=${MONGODB_USER}
+      - MONGODB_HOST=${MONGODB_HOST}
+      - MONGODB_DATABASE=${MONGODB_DATABASE}
+      - MONGODB_PASS=${MONGODB_PASS}
+      - MONGODB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      - MONGODB_USERNAME=${MONGODB_USER}
+      - MONGODB_PASSWORD=${MONGODB_PASS}
+      - MONGODB_ADMIN_USER=ouam
+      - MONGODB_ADMIN_PASS=1000Sabords
+      - MONGODB_APPLICATION_DATABASE=mevn
+      - MONGODB_APPLICATION_USER=ouam
+      - MONGODB_APPLICATION_PASS=1000Sabords
     ports:
-      - '27018:27017'
+      - '27017:27017'
     volumes:
-      - /data/mongodb/db:/data/db
+      - /var/lib/mongodb:/data/db

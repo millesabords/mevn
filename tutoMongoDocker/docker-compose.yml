@@ -1,0 +1,34 @@
+version: '2'
+services:
+  mongo:
+    image: mongo
+#   build:
+#      context: .
+#      dockerfile: Dockerfile
+#   container_name: mongo
+#   ports:
+#    - "27017:27017"
+#   environment:
+#    - AUTH=yes
+#   volumes:
+#    - /var/lib/mongodb:/data/db
+
+web:
+    build: .
+    links:
+      - mongo
+    ports:
+       - '3001:3000'
+    env_file: .env
+    environment:
+      - NODE_ENV=development
+
+#mongoClientTemp:
+#   image: mongo:latest
+#   container_name: mongoClientTemp
+#   links:
+#    - mongo:mongo
+#   command: mongo --host 172.17.0.2 --eval  "db.getSiblingDB('dashboard').createUser({user:'testuser', pwd:'testpass', roles:[{role:'readWrite',db:'dashboard'}]});"
+#   depends_on:
+#    - mongo
+#
