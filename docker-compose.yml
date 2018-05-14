@@ -1,16 +1,14 @@
-web:
-    build: .
-    links:
-      - mongo
-    ports:
-       - '3001:3000'
-    env_file: .env
-    environment:
-      - NODE_ENV=development
+version: '2'
+networks:
+  static-network:
+    ipam:
+      config:
+        - subnet: 172.22.0.0/16
 
-mongo:
+services:
+  mongo:
     image: mongo
-#    container_name: mongo2
+    container_name: mongoguest
     env_file: .env
     environment:
       - AUTH=yes
@@ -33,3 +31,20 @@ mongo:
       - '27017:27017'
     volumes:
       - /var/lib/mongodb:/data/db
+    networks:
+      static-network:
+        ipv4_address: 172.22.128.2
+
+  web:
+    build: .
+    links:
+      - mongo
+    ports:
+       - '3001:3000'
+    env_file: .env
+    environment:
+      - NODE_ENV=development
+    networks:
+      static-network:
+        ipv4_address: 172.22.128.3
+

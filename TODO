@@ -1,4 +1,5 @@
-- dockerization: still can't connect to mongodb
-- config file in common for node code and vue code? (extra config file in config dirs not to be used by webpack but just imported by...)
+- src/App.vue 'API_URL' 3000->3001 doit etre adaptable selon env docker ou non,
+exporter la bdd (fichier only?) vers le vps dans le repertoire qui va bien.
+- config file in common for node code and vue code? (extra config file in config dirs not to be used by webpack but just imported by...)   -> API_URL must be switchable according to docker or not environment !!! -> and then blog all this
 - take care 'myroutes' private module may enter in conflict with other project epou's myroutes
 - use this as a platform to make a life blog or xwiki?

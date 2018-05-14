@@ -79,7 +79,10 @@ if (process.env.NODE_ENV === 'development') { // Only in dev environment
 //import mongoose from 'mongoose';
 var mongoose = require('mongoose');
 //mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://172.17.0.2:27017/mevn', { promiseLibrary: require('bluebird') })
+//console.log("WAX1 voici le mongo host: " + process.env.MONGO_HOST);
+//mongoose.connect('mongodb://172.17.0.2:27017/mevn', { promiseLibrary: require('bluebird') })
+//mongoose.connect('mongodb://ouam:1000Sabords@localhost:27017/mevn', { promiseLibrary: require('bluebird') })
+mongoose.connect('mongodb://ouam:1000Sabords@172.22.128.2:27017/mevn', { promiseLibrary: require('bluebird') })
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
 // mongoose.on('error', console.error.bind(console, 'connection error:'));

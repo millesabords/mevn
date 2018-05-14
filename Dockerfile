@@ -8,6 +8,7 @@ COPY mymodels ./mymodels
 COPY package*.json /usr/src/app/
 RUN npm install
 RUN cd node_modules/ && ln -s ../mymodels mymodels && ln -s ../myroutes myroutes && cd ..
+#RUN export MONGO_HOST=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' mongo`
 ENV PORT=3000
 EXPOSE 3000
 CMD ["npm", "start"]
